@@ -60,12 +60,15 @@ export default {
   methods: {
     // 判断是否是children结构的数据,不是则进行转换
     transferData() {
+      console.log(this.isChildrenFormat)
       if (this.isChildrenFormat) {
         if (this.defaultProps.children !== 'children') {
           const treeNodeFunc = (treeNode) => {
             treeNode.map((item) => {
               if (item[this.defaultProps.children]) {
+                this.$set(item, 'expand', this.isExpand)
                 item.children = item[this.defaultProps.children]
+                // delete item[this.defaultProps.children]
                 treeNodeFunc(item.children)
               }
             })

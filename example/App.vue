@@ -16,7 +16,7 @@ export default {
     return {
       tableData: {
         headData: [],
-        bodyData: [
+        bodyData1: [
           {
             "id":11,
             "pid":0,
@@ -58,13 +58,25 @@ export default {
             'cont': 11,
             "name":"这是第三个用户"
           }
-        ]
+        ],
+        bodyData: [{
+          "id":11,
+          'cont': 11,
+          "name":"超级管理员",
+          'depth': 0,
+          child:[{
+            "id":12,
+            'cont': 11,
+            "name":"管理员",
+            'depth': 1
+          }]
+        }]
       },
       defaultProps: {
-        children: 'children',
+        children: 'child',
         pid: 'pid'
       },
-      isChildrenFormat: false, // 是否是children格式数据(不是的话需要自带depth和expand字段)
+      isChildrenFormat: true, // 是否是children格式数据(不是的话需要自带depth和expand字段)
       isExpand: true, // 是否全部展开
     }
   },
@@ -124,7 +136,7 @@ export default {
       console.log('编辑', item)
     },
     onDel(item){
-      console.log('详情', item)
+      console.log('删除', item)
     }
   }
 }

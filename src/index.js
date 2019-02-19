@@ -1,8 +1,7 @@
-import tableTree from './components/treeTable'
+import tableTree from '@/components'
 
-function install (Vue) {
-  Vue.component('tableTree', tableTree)
-}
 export default {
-  install
+  install: function(Vue) {
+    Vue.component('tableTree', tableTree)
+  }
 }

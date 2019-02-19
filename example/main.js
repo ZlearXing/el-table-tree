@@ -6,12 +6,6 @@ Vue.use(tableTree)
 
 new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>'
-  // render: h => h(tableTree)
+  // components: { App }, // vue1.0的写法
+  render: h => h(App) // vue2.0的写法
 })
-// new Vue({
-//   render(createElement) {
-//     return createElement(App)
-//   }
-// }).$mount('#app')

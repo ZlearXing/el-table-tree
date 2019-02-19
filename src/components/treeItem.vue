@@ -25,7 +25,7 @@
       </td>
     </tr>
     <treeItem 
-      v-if="isExpand"
+      v-if="isHaveChild"
       v-show="item.expand"
       v-for="(child, index) in item.children" 
       :item="child" :key="index" 
@@ -52,13 +52,13 @@ export default {
     }
   },
   computed: {
-      isExpand() {
+      isHaveChild() {
           return this.item.children && this.item.children.length
       }
   },
   methods: {
     toggleExpand() {
-      if (this.isExpand) {
+      if (this.isHaveChild) {
         this.item.expand = !this.item.expand
       }
     }
